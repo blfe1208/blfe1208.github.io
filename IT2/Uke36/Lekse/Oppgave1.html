@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lekse oppgave 1</title>
+
+    <style>
+        body {
+
+            background-color: black;
+
+        }
+        #minCanvas {
+            background-color: black;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <canvas id="minCanvas" height="454" width="789">
+        Din nettleser støtter ikke canvas
+
+    </canvas>
+
+
+    <script>
+
+
+        var minCanvas = document.getElementById("minCanvas");
+        var ctx = minCanvas.getContext("2d");
+
+        minCanvas.width = innerWidth;
+        minCanvas.height = innerHeight;
+
+        function tegnSirkel() {
+
+
+
+            var x = Math.random() * innerWidth;
+            var y = Math.random() * innerHeight;
+            var r= Math.random()* 100;
+
+
+            var farge= `hsla(${Math.random()* 360}, 100%, 50%, 0.8)`;
+            ctx.fillStyle = farge;
+            ctx.beginPath();
+
+            ctx.arc(x, y, r, 0, 2 * Math. PI);
+            ctx.stroke();
+            ctx.fill();
+            ctx.closePath();
+
+
+
+        }
+
+        setInterval(tegnSirkel, 10)
+
+        
+
+
+
+    </script>
+
+
+</body>
+</html>

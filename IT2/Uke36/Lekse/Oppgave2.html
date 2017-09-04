@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finsk Flagg</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #minCanvas {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="minCanvas" width="600" height="400"></canvas>
+
+<script>
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+    var bredde = innerWidth;
+    var hoyde= innerHeight;
+    minCanvas.width = bredde;
+    minCanvas.height = hoyde;
+    function masseFlagg() {
+        var x = Math.random() * bredde;
+        var y = Math.random() * hoyde;
+        ctx.beginPath();
+        ctx.rect(x, y, 100, 65);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.rect(x, y + 25, 100, 15);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.rect(x + 30, y, 15, 65);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.closePath();
+    }
+    setInterval(masseFlagg, 50);
+</script>
+
+</body>
+</html>
