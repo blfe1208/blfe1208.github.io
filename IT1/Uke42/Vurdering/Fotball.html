@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Strekmann sparker ball</title>
+    <style>
+        @keyframes manwalk {
+            to {
+                background-position: 0 -2000px;
+            }
+        }
+
+        .mann {
+            background-image: url("fotballferdig png-01.png");
+            width: 2000px;
+            height: 6000px; /*1/12 av høyden til bildet*/
+            animation: manwalk 1s steps(12) infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="right" id="m1">
+    <div class="mann"></div>
+</div>
+
+
+</body>
+</html>
