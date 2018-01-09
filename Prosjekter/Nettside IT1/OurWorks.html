@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Grid</title>
+    <style>
+        body {
+            background-color: #eee;
+            font-family: sans-serif;
+        }
+        h1 {
+            color: white;
+            font-style: italic;
+            text-transform: uppercase;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 400;
+            text-align: center;
+            font-family: 'PT Serif', serif;
+
+        }
+
+        p {
+            color: white;
+            font-family: 'PT Serif', serif;
+            line-height: 1.5;
+            margin-bottom: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 30px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        main {
+            overflow: hidden;
+            background-color: saddlebrown;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+        header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black);
+        }
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        body > footer {
+            background-color: white;
+        }
+
+        body > footer a {
+            color: antiquewhite;
+        }
+
+        body > header > nav > a {
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+
+        }
+        body > header > nav > a:hover {
+
+            color: saddlebrown;
+
+        }
+        body > header > nav > a.active {
+            background-color: saddlebrown;
+            color: white;
+        }
+
+
+
+        main h1 {
+            color: whitesmoke;
+            font-size: 75px;
+            font-family: Impact sans-serif;
+        }
+        main h2 {
+            color: whitesmoke;
+            font-family: Impact sans-serif;
+        }
+
+        body > footer {
+            display: grid;
+            grid-gap: 20px;
+            padding: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+            background-color: saddlebrown;
+        }
+        body > footer img {
+            width: 72px;
+        }
+
+
+        @media (max-width: 750px) {
+            body > header > nav {
+                grid-auto-flow: row;
+            }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="Home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#">SERVICES</a>
+        <a href="OurWorks.html" class="active">OUR WORKS</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</header>
+<main>
+    <h1>OUR WORKS </h1>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto aut expedita iure, nam quas
+        quidem quisquam, ratione repellat unde vel voluptatibus. Dolores excepturi iusto mollitia
+        perspiciatis possimus quo repellendus!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Ad architecto aut expedita iure, nam quas
+        quidem quisquam, ratione repellat unde vel voluptatibus. Dolores excepturi iusto mollitia
+        perspiciatis possimus quo repellendus!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Ad architecto aut expedita iure, nam quas
+        quidem quisquam, ratione repellat unde vel voluptatibus. Dolores excepturi iusto mollitia
+        perspiciatis possimus quo repellendus!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Ad architecto aut expedita iure, nam quas
+        quidem quisquam, ratione repellat unde vel voluptatibus. Dolores excepturi iusto mollitia
+        perspiciatis possimus quo repellendus! </p>
+</main>
+<footer>
+
+</footer>
+
+<script>
+    let slides = document.querySelector(".slides");
+    let marg = 0;
+    function forover() {
+        if(marg > -400) {
+            marg = marg - 100;
+            slides.style.marginLeft =  marg + "%";
+        } else {
+            slides.animate([
+                {transform: "translateX(20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(15px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    }
+    function bakover() {
+        if(marg < 0) {
+            marg = marg + 100;
+            slides.style.marginLeft = marg + "%";
+        } else {
+            slides.animate([
+                {transform: "translateX(-20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(-15px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    }
+    slides.onclick = function(klikk) {
+        if(klikk.clientX > innerWidth / 2) {
+            forover();
+        } else {
+            bakover();
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

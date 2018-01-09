@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Grid</title>
+    <style>
+        body {
+            background-color: #eee;
+            font-family: sans-serif;
+        }
+        h1 {
+            margin-bottom: 16px;
+            padding-top: 16px;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        main {
+            overflow: hidden;
+            background-color: saddlebrown;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .slides {
+            width: 500%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            transition: 1s;
+            position: relative;
+        }
+        .slides > div {
+            text-align: center;
+        }
+        .slides > div > img {
+            width: 100%;
+
+        }
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+        header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black);
+        }
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        body > footer {
+            background-color: white;
+        }
+
+        body > footer a {
+            color: antiquewhite;
+        }
+
+        body > header > nav > a {
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+
+        }
+        body > header > nav > a:hover {
+
+            color: saddlebrown;
+
+        }
+        body > header > nav > a.active {
+            background-color: saddlebrown;
+            color: white;
+        }
+
+
+
+        main .slides h1 {
+            color: whitesmoke;
+            font-size: 75px;
+            font-family: Impact sans-serif;
+        }
+        main h2 {
+            color: whitesmoke;
+            font-family: Impact sans-serif;
+        }
+
+        body > footer {
+            display: grid;
+            grid-gap: 20px;
+            padding: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+            background-color: saddlebrown;
+        }
+        body > footer img {
+            width: 72px;
+        }
+
+
+        #firmalogo {
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            top: 5%;
+            color: white;
+        }
+
+        @media (max-width: 750px) {
+            body > header > nav {
+                grid-auto-flow: row;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="Home.html" class="active">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#">SERVICES</a>
+        <a href="OurWorks.html">OUR WORKS</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</header>
+<main>
+
+    <div class="slides">
+        <h1 id="firmalogo">HOME AND COTTAGE</h1>
+        <div>
+            <img src="Bilder/kontor1.jpg">
+        </div>
+        <div>
+            <img src="Bilder/kontor2.jpg">
+        </div>
+        <div>
+            <img src="Bilder/kontor3.jpg">
+        </div>
+        <div>
+            <img src="Bilder/kontor4.png">
+        </div>
+        <div>
+            <img src="Bilder/kontor5.jpg">
+        </div>
+    </div>
+</main>
+<footer>
+    <article>
+        <img src="Bilder/blyant.png">
+        <a href="#"><p>Skriveverkøyet vårt er bra</p></a>
+    </article>
+    <article>
+        <img src="Bilder/klokke.png">
+        <a href="#"><p>Bestill time</p></a>
+    </article>
+    <article>
+        <img src="Bilder/lapp.png">
+        <a href="#"><p>Skriv en melding til oss</p></a>
+    </article>
+</footer>
+
+<script>
+    let slides = document.querySelector(".slides");
+    let marg = 0;
+    function forover() {
+        if(marg > -400) {
+            marg = marg - 100;
+            slides.style.marginLeft =  marg + "%";
+        } else {
+            slides.animate([
+                {transform: "translateX(20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(15px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    }
+    function bakover() {
+        if(marg < 0) {
+            marg = marg + 100;
+            slides.style.marginLeft = marg + "%";
+        } else {
+            slides.animate([
+                {transform: "translateX(-20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(-15px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    }
+    slides.onclick = function(klikk) {
+        if(klikk.clientX > innerWidth / 2) {
+            forover();
+        } else {
+            bakover();
+        }
+    }
+</script>
+
+
+
+</body>
+</html>
