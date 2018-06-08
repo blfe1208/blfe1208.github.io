@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="with=device-with, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Norwegian</title>
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding: 0;
+            border: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Avenir Next", "sans-serif";
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            min-height: 50px;
+            color: white;
+        }
+
+        header nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav a:after {
+            content: '';
+            height: 2px;
+            background: #1728c6;
+            display:block;
+            transform: scaleX(0);
+            transition: transform 200ms ease-in-out;
+        }
+        header nav a:hover:after {
+            transform: scaleX(1);
+        }
+
+        main{
+            background-color:white;
+            flex: 1;
+        }
+
+        .w970 {
+            max-width: 970px;
+            margin: 0 auto;
+            padding: 0 5px;
+            color: white;
+        }
+
+        .boxs{
+            width: 100%;
+            min-height: 110px;
+            background-color: red;
+
+        }
+
+        hr { width:60%;
+            height:1px;
+            background: #fff;
+            margin: auto;
+        }
+
+        h1{
+            color: black;
+            font-weight: 500;
+            padding-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .whithe{
+            color: black;
+        }
+
+        .over{
+            padding-top: 20px;
+            padding-bottom: 10px;
+            font-size: x-large;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+
+        }
+        .under{
+            color: white;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            font-size: medium;
+            text-align: center;
+        }
+
+        .space{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .po{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .po2{
+            display: flex;
+            flex-direction: row;
+        }
+
+        @media screen and (max-width: 650px) {
+            footer #footerx {
+                flex-direction: column;
+            }
+        }
+
+        /*footer*/
+        footer {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            background-color: #000000;
+            min-height: 50px;
+            flex-direction: row;
+        }
+
+        footer div {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        footer div article {
+
+            min-height: 70px;
+            text-align: left;
+            font-size: small;
+            padding: 30px;
+        }
+
+        #footerx {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .basic{
+            font-family: "Avenir Next", "sans-serif";
+            font-weight: 300;
+            padding-bottom: 8px;
+        }
+
+        .blue{
+            width:100%;
+            height:5px;
+            background: red;
+            margin: auto;
+            color: red;
+        }
+
+    </style>
+
+</head>
+<body class="w970">
+
+    <header>
+        <nav>
+           <a href="Index.html">HOME</a>
+           <a href="2.html">AIRCRAFT</a>
+           <a href="#">ABOUT</a>
+           <a href="3.html">CONTACT</a>
+        </nav>
+    </header>
+
+<main class="whithe">
+    <section>
+        <div class="boxs">
+            <a class="over">ABOUT</a>
+            <hr />
+            <a class="under">Welcome to Norwegian.com. The Sky Is Yours.</a>
+        </div>
+    </section>
+    <section class="space">
+        <div>
+            <div class="po">
+                <div>
+                    <h1>GLOBAL AIRCRAFT AVAILABILITY</h1>
+                    <a>The Norwegian network provides worldwide access to the widest choice of accredited aircraft available for private charter flights, ranging from turbo props, executive jets and commercial airliners. In addition we also offer a global helicopter service with a network of certified helicopter operators. Norwegian has also built preferred arrangements with global FBOS, private jet terminals, ground handling agents and other business aviation suppliers to deliver a seamless and consistently excellent service for every flight.</a>
+                </div>
+                <div>
+                    <h1>RESPONSE SPEED</h1>
+                    <a>Norwegian bespoke and purpose-built technology platform enables rapid response to charter requests. The online pricing tool gives instant and accurate market price estimates within seconds, and live quotes within minutes. No other charter provider can aggregate and supply global aircraft on demand as quickly as Norwegian.</a>
+                </div>
+                <div class="po2">
+                    <div>
+                        <h1>PRIVATE JET PRICING POLICY</h1>
+                        <a>Our pricing model couldn't be simpler; our online network creates the most competitive price in the market by our operators quoting in an open marketplace. Norwegian takes a fee on each flight, which is consistent and highly competitive. Through integration with operators’ scheduling software, we can also match available one-ways / empty legs to any request, with savings passed onto the customer.</a>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div>
+                    <h1>SAFETY RECORD</h1>
+                    <a>Norwegian is committed to the highest levels of industry safety and has a comprehensive safety policy. Over and above the obligatory AOC requirements, Norwegian further conducts our own due diligence process before inviting operators to be part of the network. Criteria are based on both safety and compliance with a consistent VIP customer service standard. Flight safety is a combination of well maintained aircraft, rigorous planning and pilot experience. The Norwegian operations team are 24 hours, and highly experienced aviation professionals. The team is led by CEO Adam Twidell who is ex-RAF and NetJets pilot, and continues to fly the Citation XL aircraft privately. Adam is a consultant to London City Airport, and contributes opinion and content to leading national and international media.</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div class="blue"></div>
+</main>
+
+    <footer>
+        <div id="footerx">
+            <article>
+                <h2 class="basic">Norwegian</h2>
+                <a>
+                    We are the largest broker of
+                    private jets for hire, under
+                    Superlad Federal Aviation
+                    regulation Part 135, offering
+                    its clientele unparalleled service
+                    and the ultimate in luxury &
+                    convenience.
+                </a>
+            </article>
+            <article>
+                <h2 class="basic">LATEST NEWS</h2>
+                <a>
+                    Thats one way to avoid cattle class!
+                    'Uber for private jets' planning London
+                    to Dublin route
+                    The First App for private Jets:you can
+                    fly with just 4 hour's notice. And The trip
+                    becomes bespoke
+                    Book Affordable Private Jets: There Are
+                    Apps For That
+                    Uber for private jets and £392 flights to
+                    Cannes: How it could be cheaper to fly
+                    like a VIP this summer
+                </a>
+            </article>
+            <article>
+                <h2 class="basic">Get In Touch
+                </h2>
+                <a>
+                    880 Third Cloud
+                    101th. Floor
+                    Narnia, NY 10022
+
+                    512.466.9837
+                    Facebook Twitter linkedin
+                </a>
+            </article>
+        </div>
+    </footer>
+
+</body>
+</html>

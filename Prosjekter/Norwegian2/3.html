@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="with=device-with, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Norwegian Contact</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            border: 0;
+        }
+
+        .w970 {
+            max-width: 970px;
+            margin: 0 auto;
+            padding: 0 5px;
+            color: white;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Avenir Next", "sans-serif";
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            min-height: 50px;
+            color: white;
+        }
+
+        header nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav a:after {
+            content: '';
+            height: 2px;
+            background: red;
+            display:block;
+            transform: scaleX(0);
+            transition: transform 200ms ease-in-out;
+        }
+        header nav a:hover:after {
+            transform: scaleX(1);
+        }
+
+
+        main{
+            background-color:white;
+            flex: 1;
+        }
+
+        .boxs{
+            width: 100%;
+            min-height: 110px;
+            background-color: red;
+        }
+
+        hr { width:60%;
+            height:1px;
+            background: #fff;
+            margin: auto;
+        }
+
+        .hr2{
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .over{
+            padding-top: 20px;
+            padding-bottom: 10px;
+            font-size:x-large;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+        }
+        .under{
+            color: white;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            font-size: medium;
+            text-align: center;
+        }
+
+        .above{
+            padding-top: 0px;
+            font-weight: 600;
+            padding-bottom: 10px;
+        }
+
+        .below{
+            margin-bottom: 40px;
+            font-size: medium;
+            font-weight: 400;
+
+        }
+
+        .padd{
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .lett{
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .black{
+            color: black;
+            padding-left:35px;
+            padding-right:35px;
+            padding-top:35px;
+            padding-bottom:50px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .flexer{
+            display: flex;
+            flex-direction: row;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+
+
+        #form-main{
+            float:center;
+        }
+
+        #form-div {
+            background-color: rgba(72, 72, 72, 0.4);
+            padding-left:35px;
+            padding-right:35px;
+            padding-top:35px;
+            padding-bottom:35px;
+            width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+
+
+
+        }
+
+        .feedback-input {
+            color:#3c3c3c;
+            font-weight:500;
+            font-size: 18px;
+            border-radius: 0;
+            line-height: 22px;
+            background-color: #fbfbfb;
+            padding: 13px 13px 13px 54px;
+            margin-bottom: 10px;
+            width:100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 3px solid rgba(0,0,0,0);
+        }
+
+        .feedback-input:focus{
+            background: #fff;
+            box-shadow: 0;
+            border: 3px solid red;
+            color: red;
+            outline: none;
+            padding: 13px 13px 13px 54px;
+        }
+
+
+
+        /* Icons ---------------------------------- */
+        #name{
+            background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+            background-size: 30px 30px;
+            background-position: 11px 8px;
+            background-repeat: no-repeat;
+        }
+
+        #name:focus{
+            background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+            background-size: 30px 30px;
+            background-position: 8px 5px;
+            background-position: 11px 8px;
+            background-repeat: no-repeat;
+        }
+
+        #email{
+            background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+            background-size: 30px 30px;
+            background-position: 11px 8px;
+            background-repeat: no-repeat;
+        }
+
+        #email:focus{
+            background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+            background-size: 30px 30px;
+            background-position: 11px 8px;
+            background-repeat: no-repeat;
+        }
+
+        #comment{
+            background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+            background-size: 30px 30px;
+            background-position: 11px 8px;
+            background-repeat: no-repeat;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            line-height: 150%;
+            resize:vertical;
+        }
+
+        input:hover, textarea:hover,
+        input:focus, textarea:focus {
+            background-color:white;
+        }
+
+        #button-blue{
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            float:left;
+            width: 100%;
+            border: #fbfbfb solid 4px;
+            cursor:pointer;
+            background-color: red;
+            color:white;
+            font-size:24px;
+            padding-top:22px;
+            padding-bottom:22px;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            margin-top:-4px;
+            font-weight:700;
+        }
+
+        #button-blue:hover{
+            background-color: rgba(0,0,0,0);
+            color: red;
+        }
+
+        .submit:hover {
+            color: red;
+        }
+
+        .ease {
+            width: 0;
+            height: 74px;
+            background-color: #fbfbfb;
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            -ms-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .submit:hover .ease{
+            width:100%;
+            background-color:white;
+        }
+
+        @media only screen and (max-width: 580px) {
+            #form-div{
+                margin-right: 3%;
+                width: 88%;
+                margin-left: 3%;
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+            footer #footerx {
+                flex-direction: column;
+
+            }
+        }
+
+        @media only screen and (max-width: 919px){
+            .flexer{
+                flex-direction: column-reverse;
+            }
+            .padd{
+                padding-left: 0;
+                padding-top: 0;
+            }
+            .black{
+                padding-bottom: 20px;
+            }
+        }
+
+
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            background-color: #000000;
+            min-height: 50px;
+            flex-direction: row;
+        }
+
+        footer div {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+
+
+        }
+
+        footer div article {
+
+            min-height: 70px;
+            text-align: left;
+            font-size: small;
+            padding: 30px;
+
+
+        }
+
+        #footerx {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .basic{
+            font-family: "Avenir Next", "sans-serif";
+            font-weight: 300;
+            padding-bottom: 8px;
+        }
+
+        .blue{
+            width:100%;
+            height:5px;
+            background: red;
+            margin: auto;
+            color: red;
+        }
+
+
+
+    </style>
+</head>
+<body class="w970">
+
+
+<header>
+    <nav>
+        <a href="Index.html">HOME</a>
+        <a href="2.html">AIRCRAFT</a>
+        <a href="5.html">ABOUT</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</header>
+
+
+<main>
+    <section>
+        <div class="boxs">
+            <a class="over">Contact</a>
+            <hr />
+            <a class="under">Welcome to Norwegian.com. The Sky Is Yours.</a>
+        </div>
+    </section>
+
+
+    <section>
+
+    <div class="flexer">
+        <div id="form-main" class="padd">
+            <div id="form-div">
+                <form class="form" id="form1">
+
+                    <p class="name">
+                        <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+                    </p>
+
+                    <p class="email">
+                        <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+                    </p>
+
+                    <p class="text">
+                        <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message"></textarea>
+                    </p>
+
+
+                    <div class="submit">
+                        <input type="submit" value="SEND" id="button-blue"/>
+                        <div class="ease"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="black">
+
+            <h1 class="lett">
+                Contact us
+            </h1>
+
+            <hr class="hr2">
+
+            <h4 class="above">Phone:</h4>
+
+            <h4 class="below">671 38 364</h4>
+
+            <h4 class="above">Adress:</h4>
+
+            <h4 class="below">Fiolveien 29</h4>
+
+            <h1 class="lett">Soacial network</h1>
+
+            <hr class="hr2">
+
+            <h4 class="below">www.facebook.com/Norwegian
+            </h4>
+        </div>
+    </div>
+    </section>
+    <div class="blue"></div>
+</main>
+
+<footer>
+
+    <div id="footerx">
+        <article>
+            <h2 class="basic">Norwegian</h2>
+            <a>
+                We are the largest broker of
+                private jets for hire, under
+                Superlad Federal Aviation
+                regulation Part 135, offering
+                its clientele unparalleled service
+                and the ultimate in luxury &
+                convenience.
+            </a>
+        </article>
+        <article>
+            <h2 class="basic">LATEST NEWS</h2>
+            <a>
+                Thats one way to avoid cattle class!
+                'Uber for private jets' planning London
+                to Dublin route
+                The First App for private Jets:you can
+                fly with just 4 hour's notice. And The trip
+                becomes bespoke
+                Book Affordable Private Jets: There Are
+                Apps For That
+                Uber for private jets and £392 flights to
+                Cannes: How it could be cheaper to fly
+                like a VIP this summer
+            </a>
+        </article>
+        <article>
+            <h2 class="basic">Get In Touch
+            </h2>
+            <a>
+                Fiolveien 29
+                Kolsås, 1352
+
+
+                Facebook Twitter linkedin Instagram
+            </a>
+        </article>
+
+    </div>
+
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBtJm3N_7LCixODYLMZRL9e2_1i97Ec3PY",
+        authDomain: "informasjonsteknologi-19837.firebaseapp.com",
+        databaseURL: "https://informasjonsteknologi-19837.firebaseio.com",
+        projectId: "informasjonsteknologi-19837",
+        storageBucket: "informasjonsteknologi-19837.appspot.com",
+        messagingSenderId: "635783316652"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    div form1 = document.getElementById("form1");
+    div name = document.getElementById("name");
+    div email = document.getElementById("email");
+    div comment = document.getElementById("comment");
+
+
+    div db = firebase.database();
+    div kontrakter = db.ref("kontrakter");
+
+    function lagreKontrakt(evt) {
+        evt.preventDefault();
+        div kontrakt = {
+            navn: navn.value,
+            epost: email.value,
+            comment: comment.value
+        };
+        kontrakter.push(kontrakt);
+        skjema.reset();
+        inpNavn.focus();
+    }
+
+    function visKontrakt(snap) {
+        div kontrakt = snap.val();
+        tbKontakter.innerHTML += `
+            <tr>
+                <td>${kontrakt.navn}</td>
+                <td>${kontrakt.email}</td>
+                <td>${kontrakt.comment}</td>
+            </tr>
+        `;
+    }
+
+    kontrakter.on("child_added", visKontrakt);
+    skjema.onsubmit = lagreKontrakt;
+</script>
+
+</body>
+</html>

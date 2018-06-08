@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="with=device-with, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Norwegian</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            border: 0;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column; /* ligger under hverandre */
+            min-height: 100vh;      /* viewport */
+            font-family: "Avenir Next", "sans-serif";
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            min-height: 50px;       /*ikke sikkert vi trenger denne*/
+            color: white;
+
+        }
+
+        header nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav a:after {
+            content: '';
+            height: 2px;
+            background: red;
+            display:block;
+            transform: scaleX(0);
+            transition: transform 200ms ease-in-out;
+        }
+        header nav a:hover:after {
+            transform: scaleX(1);
+        }
+
+
+
+
+        main{
+            background-color:white;
+            flex: 1;
+        }
+
+        .light{
+            background-color: white;
+        }
+
+        .light > article > img {
+            width: 100%;
+        }
+
+        main section article {
+
+        }
+        .over{
+            padding-top: 10px;
+            font-size: larger;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "Avenir Next", "sans-serif";
+            background-color: red;
+            color: white;
+
+        }
+        .under{
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 500;
+            text-align: center;
+            background-color: red;
+            height: 64px;
+            color: white;
+            font-family: "Avenir Next", "sans-serif";
+        }
+
+
+        #boks {
+            display: flex;
+            background-color: white;
+            flex-direction: row;
+            justify-content: space-around;
+            color: white;
+        }
+
+
+        #boks > div {
+            flex: 1;
+            background-color: black;
+            margin: 10px;
+            padding-bottom: 10px;
+            transition-duration: 0.2s;
+        }
+
+
+        #boks > div:hover{
+            background-color: #323232;
+        }
+
+
+
+        #boks > div > div {
+            display: flex;
+            align-items: center;
+        }
+        .Con {
+            max-width: 970px;
+            margin: auto;
+        }
+
+
+
+        @media screen and (max-width: 650px) {
+            #boks {
+                flex-direction: column;
+            }
+            footer #footerx {
+                flex-direction: column;
+
+            }
+            .B {display: none}
+
+
+        }
+
+        .icon {
+            height: 50px;
+            width: 50px;
+            margin: 5px;
+        }
+        .fly {
+            color: red;
+            font-size: 25px;
+        }
+
+        .yeah{
+            margin-left: 15px;
+            margin-right: 15px;
+
+        }
+        .yeah2{
+            margin-left: 15px;
+            color: red;
+            padding-top: 10px;
+        }
+
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            background-color: #000000;
+            min-height: 50px;
+            flex-direction: row;
+        }
+
+        footer div {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+
+
+        }
+
+        footer div article {
+
+            min-height: 70px;
+            text-align: left;
+            font-size: small;
+            padding: 30px;
+
+
+        }
+
+        #footerx {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .basic{
+            font-family: "Avenir Next", "sans-serif";
+            font-weight: 300;
+            padding-bottom: 8px;
+        }
+
+        .blue{
+            width:100%;
+            height:5px;
+            background: red;
+            margin: auto;
+            color: red;
+            margin-top: 30px;
+        }
+
+        div > img {
+            height: auto;
+            width: auto;
+            max-width: 500px;
+            max-height: 600px;
+        }
+
+        .cuz{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: auto;
+            padding-top: 40px;
+            padding-bottom: 10px;
+
+        }
+
+        .A {
+            padding-left: 5%;
+            padding-right: 20px;
+        }
+
+        .B{
+            margin-right: 5%;
+        }
+
+        .yeah3{
+            margin-left: 0;
+            color: red;
+            padding-bottom: 5px;
+
+    </style>
+</head>
+<body>
+<div class="Con">
+    <header>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="2.html">AIRCRAFT</a>
+            <a href="5.html">ABOUT</a>
+            <a href="3.html">CONTACT</a>
+        </nav>
+
+    </header>
+        <main>
+            <section class="light">
+                <article>
+                    <a class="over">ON-DEMAND PRIVATE JET CHARTER</a>
+                    <a class="under">Norwegian makes comparing, booking and managing private jets easier than ever before
+                    </a>
+                </article>
+            </section>
+
+
+
+            <section>
+                <div class="cuz">
+                <div class="A">
+                    <h2 class="basic">Transparency you can trust</h2>
+                    <a>
+                        World-class technology gives you access to every last detail before
+                        booking – including tail number, operator name, safety information,
+                        aircraft photos and interior amenities.
+                    </a>
+                    <p class="yeah3">Learn more »</p>
+                    <h2 class="basic">Smart technology in the palm of your hand</h2>
+                    <a>
+                        Compare, book and manage flights on smartphone and online, with
+                        instant price estimates and in-app flight management on tap, at a tap.
+                    </a>
+                    <p class="yeah3">Learn more »</p>
+                    <h2 class="basic">Connected and in control</h2>
+                    <a>
+                        With 24/7 customer service, mechanical recovery insurance, no upfront
+                        capital and all monies held in an HSBC client deposit account, your
+                        booking is guaranteed.
+                    </a>
+                    <p class="yeah3">Learn more »</p>
+                </div>
+                <div class="B">
+                    <img src="Bilde/SAS_hand-phone-1.jpg">
+                </div>
+                </div>
+            </section>
+
+
+
+            <div id="boks">
+                <div>
+                    <div>
+                            <a  href="2.html">
+                            <img class="icon" src="Icons/nettside1-icon-fly.svg">
+                            </a>
+                            <span class="fly">AIRCRAFTS</span>
+                    </div>
+                    <div>
+                        <p class="yeah">With access to over 5,000 aircraft
+                            worldwide, Norwegian has the
+                            experience in locating the best possible
+                            aircraft for your mission. Operators
+                            providing service for Norwegian clients
+                            in the United States must meet standards
+                            set forth by the Federal Aviation
+                            Administration (FAA) for safety, security
+                            and service and operate under Part 135 of
+                            the FAA regulations.</p>
+                        <p class="yeah2">Learn more »</p>
+                    </div>
+                </div>
+                <div>
+
+                        <div>
+                        <p class="yeah">With access to over 5,000 aircraft
+                            worldwide, Norwegian has the
+                            experience in locating the best possible
+                            aircraft for your mission. Operators
+                            providing service for Norwegian clients
+                            in the United States must meet standards
+                            set forth by the Federal Aviation
+                            Administration (FAA) for safety, security
+                            and service and operate under Part 135 of
+                            the FAA regulations.</p>
+                        <p class="yeah2">Learn more »</p>
+                    </div>
+                </div>
+                    <div>
+                        <div>
+                            <a href="3.html">
+                            <img class="icon" src="Icons/nettside1-icon-mail.svg">
+                            </a>
+                            <span class="fly">CONTACTS</span>
+                        </div>
+                        <div>
+                        <p class="yeah">With access to over 5,000 aircraft
+                            worldwide, Norwegian has the
+                            experience in locating the best possible
+                            aircraft for your mission. Operators
+                            providing service for Norwegian clients
+                            in the United States must meet standards
+                            set forth by the Federal Aviation
+                            Administration (FAA) for safety, security
+                            and service and operate under Part 135 of
+                            the FAA regulations.</p>
+                        <p class="yeah2">Learn more »</p>
+                    </div>
+                </div>
+            </div>
+            <div class="blue"></div>
+
+        </main>
+
+        <footer>
+
+            <div id="footerx">
+                <article>
+                    <h2 class="basic">Norwegian</h2>
+                    <a>
+                    We are the largest broker of
+                    private jets for hire, under
+                    Superlad Federal Aviation
+                    regulation Part 135, offering
+                    its clientele unparalleled service
+                    and the ultimate in luxury &
+                    convenience.
+                    </a>
+                </article>
+                <article>
+                    <h2 class="basic">LATEST NEWS</h2>
+                    <a>
+                    Thats one way to avoid cattle class!
+                    'Uber for private jets' planning London
+                    to Dublin route
+                    The First App for private Jets:you can
+                    fly with just 4 hour's notice. And The trip
+                    becomes bespoke
+                    Book Affordable Private Jets: There Are
+                    Apps For That
+                    Uber for private jets and £392 flights to
+                    Cannes: How it could be cheaper to fly
+                    like a VIP this summer
+                    </a>
+                </article>
+                <article>
+                    <h2 class="basic">Get In Touch
+                    </h2>
+                    <a>
+                    880 Third Cloud
+                    101th. Floor
+                    Narnia, NY 10022
+
+                    512.466.9837
+                    Facebook Twitter linkedin
+                    </a>
+                </article>
+
+            </div>
+
+
+
+
+
+        </footer>
+
+
+
+</body>
+</html>
