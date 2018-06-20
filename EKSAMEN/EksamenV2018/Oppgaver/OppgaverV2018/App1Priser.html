@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css">
+    <style>
+        body {
+            background-color: saddlebrown;
+            font-family: sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+
+        }
+
+        header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black);
+            margin-bottom:20px;
+
+        }
+
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        body > header > nav > a {
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+
+        }
+        body > header > nav > a:hover {
+
+            color: saddlebrown;
+
+        }
+        body > header > nav > a.active {
+            background-color: saddlebrown;
+            color: white;
+        }
+        h1 {
+            color: white;
+            font-style: italic;
+            text-transform: uppercase;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 400;
+            text-align: center;
+            font-family: 'PT Serif', serif;
+
+        }
+
+
+        p {
+            color: white;
+            font-family: 'PT Serif', serif;
+            line-height: 1.5;
+            margin-bottom: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 30px;
+        }
+
+
+        th:last-child {
+            width: 100px;
+        }
+        tr > td:last-child > input {
+            margin: 0;
+        }
+
+
+        #helekurven {
+            margin-top: 20px;
+            border-top: 6px solid lightskyblue;
+            display: none;
+        }
+
+        #handlekurvtabell > tr:last-child > td {
+            background-color: beige;
+            font-weight: bold;
+            border-top: 6px solid brown;
+        }
+        #info {
+            display: block;
+        }
+        @media (max-width: 750px) {
+            body > header > nav {
+                grid-auto-flow: row;
+            }
+
+    </style>
+</head>
+<header>
+    <nav>
+        <a href="Startside.html">Hjem</a>
+        <a href="#" class="active">Arrangementer</a>
+        <a href="Quiz.html">Quiz</a>
+        <a href="OmOss.html">Om oss</a>
+        <a href="#">Kommende ny app!</a>
+    </nav>
+</header>
+<body>
+
+    <h1>VÅRE ARRENGEMENTER</h1>
+
+    <p> Vi har flere forskjellige arrengementer den kommende uken! Gjennom vår splitter nye nettside kan du bestille billetter
+        med få tastetrykk! Grunnet små tekniske problemer er det for øyeblikket ikke mulig å bestille voksenbilletter.
+        Dette fikses forløpende! Håper vi ser dere den kommende uken, dette blir bra!</p>
+<table>
+    <thead>
+    <tr>
+        <th>Arrangement</th>
+        <th>Pris</th>
+        <th>Kjøp</th>
+    </tr>
+    </thead>
+    <tbody id="varetabell"></tbody>
+</table>
+
+<table id="helekurven">
+    <thead>
+    <tr>
+        <th>Arrangement</th>
+        <th>Pris</th>
+        <th>Antall</th>
+        <th>Sum</th>
+    </tr>
+    </thead>
+    <tbody id="handlekurvtabell"></tbody>
+</table>
+
+<div id="info" class="callout success">Handlekurven er tom</div>
+
+<script>
+
+    // Referanser til HTML-elementer
+    let varetabell = document.getElementById("varetabell");
+    let handlekurvtabell = document.getElementById("handlekurvtabell");
+    let helekurven = document.getElementById("helekurven");
+    let info = document.getElementById("info");
+
+
+    let varer = new Map();
+    let handlekurv = new Map();
+
+    varer.set(1, {
+        navn: "1: juni 11:00- Trondheim kammermusikkfestival: Fabelaktig formiddag",
+        pris: 50
+    });
+
+    varer.set(2, {
+        navn: "4. juni 14:30- Spill opp!",
+        pris: 50
+    });
+
+    varer.set(3, {
+        navn: "6. juni 13:00- Onsdagskonsert",
+        pris: 50
+    });
+
+    varer.set(4, {
+        navn: "9. juni 14:00- Juigat: Joik for folk",
+        pris: 50
+    });
+
+    function oppdaterHandlekurv() {
+
+        if(handlekurv.size === 0) {
+            info.style.display = "block";
+            helekurven.style.display = "none";
+        } else {
+            info.style.display = "none";
+            helekurven.style.display = "table";
+        }
+
+
+        let total = 0;
+
+        handlekurvtabell.innerHTML = "";
+        for(let [key, handel] of handlekurv) {
+            total += handel.antall * handel.vare.pris;
+            handlekurvtabell.innerHTML += `
+                    <tr>
+                        <td>${handel.vare.navn}</td>
+                        <td>${handel.vare.pris}</td>
+                        <td>${handel.antall}</td>
+                        <td>${handel.antall * handel.vare.pris}</td>
+                    </tr>
+                `;
+        }
+
+        handlekurvtabell.innerHTML += `
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Sum: </td>
+                    <td>${total}</td>
+                </tr>
+            `;
+
+    }
+
+    function leggVareIHandlekurv(ant, varenummer) {
+
+        if(Number(ant) === 0) {
+            handlekurv.delete(varenummer);
+        } else {
+
+            handlekurv.set(varenummer, {
+                antall: Number(ant),
+                vare: varer.get(varenummer)
+            });
+
+        }
+        oppdaterHandlekurv();
+    }
+
+
+    function lagVaretabell() {
+
+        for (let [varenr, vare] of varer) {
+            varetabell.innerHTML += `
+                    <tr>
+                        <td>${vare.navn}</td>
+                        <td>${vare.pris}</td>
+                        <td>
+                            <input
+                                oninput="leggVareIHandlekurv(this.value, ${varenr})"
+                                type="number" min="0" max="100" value="0">
+                        </td>
+                    </tr>
+
+                `;
+        }
+
+    }
+
+    lagVaretabell();
+
+
+
+
+</script>
+</body>
+</html>

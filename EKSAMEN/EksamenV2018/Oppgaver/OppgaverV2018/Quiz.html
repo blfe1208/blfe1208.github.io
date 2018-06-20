@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            background-color: saddlebrown;
+            font-family: sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+
+        }
+
+        header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black);
+            margin-bottom:20px;
+
+        }
+
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        body > header > nav > a {
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+
+        }
+        body > header > nav > a:hover {
+
+            color: saddlebrown;
+
+        }
+        body > header > nav > a.active {
+            background-color: saddlebrown;
+            color: white;
+        }
+        h1 {
+            color: white;
+            font-style: italic;
+            text-transform: uppercase;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 400;
+            text-align: center;
+            font-family: 'PT Serif', serif;
+
+        }
+
+
+        p {
+            color: white;
+            font-family: 'PT Serif', serif;
+            line-height: 1.5;
+            margin-bottom: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 30px;
+        }
+
+
+
+        @media (max-width: 750px) {
+            body > header > nav {
+                grid-auto-flow: row;
+            }
+
+    </style>
+</head>
+<header>
+    <nav>
+        <a href="Startside.html">Hjem</a>
+        <a href="App1Priser.html">Arrangementer</a>
+        <a href="Quiz.html" class="active">Quiz</a>
+        <a href="OmOss.html">Om oss</a>
+        <a href="#">Kommende ny app!</a>
+    </nav>
+</header>
+<body>
+
+<audio src="../OppgaverV2018/obo_01.mp3" constrols></audio>
+
+<main></main>
+<aside></aside>
+
+<script>
+
+    // Referanser til de to HTML-elementene
+    const main = document.querySelector("main");
+    const aside = document.querySelector("aside");
+
+
+    // Definerer et JSON-lignende objekt som inneholder alle oppgaver til quizen
+    // Dette vil gjøre det enklere å bytte til andre språk
+    // Oppgavene ligger i et array i objektet instrumenter
+    // I hver oppgave ligger det et array med alternativer til spørmålene
+    const instrumenter = {
+        "overskrift" : "Hvor god er du i instrumenter?",
+        "lang" : "Instrumenter",
+        "oppgaver" : [
+            {
+                "tittel" : "Spill av lydfilen \"Instrument.mp3\" og velg riktig instrument",
+                "media" : {
+                    "type" : "audio",
+                    "file" : "Instrument.mp3"
+                },
+                "alternativer" : [
+                    {
+                        "tekst" : "Fløyte",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Fagott",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Klarinett",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Obo",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Valthorn",
+                        "rett" : false
+                    }
+                ]
+            },
+            {
+                "tittel" : "Spill av lydfilen \"Instrument.mp3\" og velg riktig instrument",
+                "media" : {
+                    "type" : "audio",
+                    "file" : "Instrument.mp3"
+                },
+                "alternativer" : [
+                    {
+                        "tekst" : "Fløyte",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Fagott",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Klarinett",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Obo",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Valthorn",
+                        "rett" : false
+                    }
+                ]
+            },
+            {
+                "tittel" : "Spill av lydfilen \"Instrument.mp3\" og velg riktig instrument",
+                "media" : {
+                    "type" : "audio",
+                    "file" : "Instrument.mp3"
+                },
+                "alternativer" : [
+                    {
+                        "tekst" : "Fløyte",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Fagott",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Klarinett",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Obo",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Valthorn",
+                        "rett" : false
+                    }
+                ]
+            },
+            {
+                "tittel" : "Spill av lydfilen \"Instrument.mp3\" og velg riktig instrument",
+                "media" : {
+                    "type" : "audio",
+                    "file" : "Instrument.mp3"
+                },
+                "alternativer" : [
+                    {
+                        "tekst" : "Fløyte",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Fagott",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Klarinett",
+                        "rett" : true
+                    },
+                    {
+                        "tekst" : "Obo",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Valthorn",
+                        "rett" : false
+                    }
+                ]
+            },
+            {
+                "tittel" : "Spill av lydfilen \"fagott.mp3\" og velg riktig instrument",
+                "media" : {
+                    "type" : "audio",
+                    "file" : "fagott.mp3"
+                },
+                "alternativer" : [
+                    {
+                        "tekst" : "Fløyte",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Fagott",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Klarinett",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Obo",
+                        "rett" : false
+                    },
+                    {
+                        "tekst" : "Valthorn",
+                        "rett" : true
+                    }
+
+                ]
+            }
+        ]
+    };
+
+
+    function lagOppgaver() {
+
+        // Henter ut overskriften fra data-objektet
+        main.innerHTML = `<h1>${instrumenter.overskrift}</h1>`;
+
+        // Traverserer alle oppgavene
+        for(let [indeks, oppgave] of instrumenter.oppgaver.entries()) {
+            // Legger til tittel
+            main.innerHTML += `
+                    <p>${oppgave.tittel}</p>
+                `;
+
+            // Sjekker om det er en undertittel i oppgaven
+            // Viser den frem hvis det er
+            if(oppgave.undertittel) {
+                main.innerHTML += `
+                        <p>${oppgave.undertittel}</p>
+                    `;
+            }
+
+            // Sjekker om det er en mediafil
+            // Sjekker om det er audio, og legger inn et audio-element hvis det stemmer
+            if(oppgave.media) {
+                if(oppgave.media.type === "audio") {
+                    main.innerHTML += `
+                            <div>
+                                <audio controls src="${oppgave.media.file}">
+                            </div>
+                        `;
+                }
+            }
+
+            // Lager sjekkbokser av alle alternativene
+            // Setter på label med teksten til alternativet
+            for(let [indeks2, alternativ] of oppgave.alternativer.entries()) {
+                let poeng = -1;
+                if(alternativ.rett) {
+                    poeng = 1;
+                }
+                main.innerHTML += `
+                        <input type="checkbox" id="opppg${indeks}${indeks2}" data-poeng="${poeng}">
+                        <label for="opppg${indeks}${indeks2}">${alternativ.tekst}</label>
+                    `;
+            }
+            main.innerHTML += "<hr>";
+        }
+
+        // Nå er alle oppgavene laget
+        // Legger til en knapp som kan trykkes på for å sjekke antall poeng
+
+        main.innerHTML += `<button class="button" onclick="beregnPoeng()">Avgi svar</button>`;
+
+    }
+
+    // Beregner poengene
+    // Går gjennom alle sjekkbokser som er huket av
+    // Hver sjekkboks inneholder et attributt som heter data-poeng.
+    // Verdien er -1 hvis det er feil alternativ
+    // Verdien er 1 hvis det er riktig alternativ
+    // Definerer variabelen poeng, og legger til verdien av
+    // attributtet i sjekkboksen for hvert alternativ
+    function beregnPoeng() {
+        let poeng = 0;
+        let sjekkbokser = document.querySelectorAll("input[type=checkbox]:checked");
+        for(let sjekkboks of sjekkbokser) {
+            poeng += Number(sjekkboks.getAttribute("data-poeng"));
+        }
+
+        // Viser antall poeng
+        aside.innerHTML = `<h3>Du fikk ${poeng} poeng</h3>`;
+
+
+        // Viser en melding basert på hvor mange poeng brukeren fikk
+        if(poeng > 3)
+            aside.innerHTML += `Du er skitgod!`;
+        else if(poeng <= 3 && poeng >= 0)
+            aside.innerHTML += "Ikke så verst. Vi tilbyr spillekurs i " + instrumenter.lang;
+        else
+            aside.innerHTML += "Du stinker i " + instrumenter.lang;
+
+    }
+
+
+    // Starter funksjonen som lager oppgavene
+    lagOppgaver();
+
+
+</script>
+
+
+</body>
+</html>
